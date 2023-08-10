@@ -11,7 +11,7 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 //powershell 'git clone https://github.com/MiguelFSoto/spring-jenkins-test.git'
-                git 'https://github.com/MiguelFSoto/spring-jenkins-test.git'
+                //git 'https://github.com/MiguelFSoto/spring-jenkins-test.git'
                 
                 // Run Maven on a Unix agent.
                 // sh "mvn -Dmaven.test.failure.ignore=true clean package"
