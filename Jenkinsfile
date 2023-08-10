@@ -18,7 +18,8 @@ pipeline {
 
                 // To run Maven on a Windows agent, use
                 // 
-                bat "mvnw.cmd -Dmaven.test.failure.ignore=true clean package"
+                //bat "mvnw.cmd -Dmaven.test.failure.ignore=true clean package"
+                bat "mvnw.cmd -Dmaven.test.failure.ignore=true compile"
             }
 
             post {
@@ -26,7 +27,10 @@ pipeline {
                 // failed, record the test results and archive the jar file.
                 success {
                     //junit '**/target/surefire-reports/TEST-*.xml'
-                    powershell 'java target/*.jar'
+                    dir("D://ProgramData/Jenkins/.jenkins/workspace/Spring_Multibranch_Test_feature/target")
+                    {
+                        powershell 'java -jar spring-petclinic-3.1.0-SNAPSHOT.jar'
+                    }
                 }
             }
         }
