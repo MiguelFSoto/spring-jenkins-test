@@ -27,12 +27,12 @@ pipeline {
                 // failed, record the test results and archive the jar file.
                 success {
                     //junit '**/target/surefire-reports/TEST-*.xml'
-                    sh "pwd"
+                    powershell "pwd"
         
                     dir("**/target")
                     {
-                        sh "pwd"
-                        sh "ls -al"
+                        powershell "pwd"
+                        powershell "ls -al"
                         powershell 'java -jar spring-petclinic-3.1.0-SNAPSHOT.jar'
                     }
                 }
