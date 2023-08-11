@@ -27,8 +27,12 @@ pipeline {
                 // failed, record the test results and archive the jar file.
                 success {
                     //junit '**/target/surefire-reports/TEST-*.xml'
-                    dir("D://ProgramData/Jenkins/.jenkins/workspace/Spring_Multibranch_Test_feature/target")
+                    sh "pwd"
+        
+                    dir("**/target")
                     {
+                        sh "pwd"
+                        sh "ls -al"
                         powershell 'java -jar spring-petclinic-3.1.0-SNAPSHOT.jar'
                     }
                 }
