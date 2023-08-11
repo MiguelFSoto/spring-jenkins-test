@@ -29,10 +29,10 @@ pipeline {
                     //junit '**/target/surefire-reports/TEST-*.xml'
                     powershell "pwd"
         
-                    dir("**/target")
+                    dir("./target")
                     {
                         powershell "pwd"
-                        powershell "ls -al"
+                        powershell "ls"
                         powershell 'java -jar spring-petclinic-3.1.0-SNAPSHOT.jar'
                     }
                 }
