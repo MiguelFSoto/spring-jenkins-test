@@ -6,7 +6,7 @@ pipeline {
             steps {
                 // To run Maven on a Windows agent, use
                 // 
-                bat "mvnw.cmd -Dmaven.test.failure.ignore=true clean package"
+                sh "./mvnw -Dmaven.test.failure.ignore=true clean package"
             }
 
             post {
@@ -16,7 +16,7 @@ pipeline {
                     //junit '**/target/surefire-reports/TEST-*.xml'
         
                     dir("./target")
-                        powershell 'java -jar spring-petclinic-3.1.0-SNAPSHOT.jar'
+                        sh 'java -jar spring-petclinic-3.1.0-SNAPSHOT.jar'
                     }
                 }
             }
