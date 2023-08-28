@@ -14,7 +14,7 @@ pipeline {
                 // failed, record the test results and archive the jar file.
                 success {
                     //junit '**/target/surefire-reports/TEST-*.xml'
-                    dir("./target")
+                    dir("./target"){
                         sh 'java -jar spring-petclinic-3.1.0-SNAPSHOT.jar'
                     }
                 }
